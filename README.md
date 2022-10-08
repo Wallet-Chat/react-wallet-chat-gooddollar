@@ -8,6 +8,7 @@
 
 ```bash
 npm install --save react-wallet-chat
+yarn add react-wallet-chat
 ```
 
 ## Usage
@@ -15,15 +16,30 @@ npm install --save react-wallet-chat
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-wallet-chat'
+import WalletChatWidget from 'react-wallet-chat'
 import 'react-wallet-chat/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <WalletChatWidget />
   }
 }
 ```
+
+## Developing
+
+Run example app to view integration
+
+```bash
+cd example && yarn run start
+```
+
+Hot reload widget itself
+
+```bash
+yarn run start
+```
+
 
 ## License
 
