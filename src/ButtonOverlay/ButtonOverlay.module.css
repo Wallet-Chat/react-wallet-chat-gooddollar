@@ -51,3 +51,19 @@
     opacity: 1;
     transform: rotate(0deg);
 }
+
+.notif{
+    position:absolute;
+    top: -8px;
+    right: -8px;
+    color: white;
+    background-color: red;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+
+}

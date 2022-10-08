@@ -3,13 +3,26 @@ import React, { useState } from 'react';
 import ButtonOverlay from "../ButtonOverlay/ButtonOverlay" 
 // import "./WalletChat.css"
 import styles from './WalletChat.module.css'
+import { getCookie } from "../utils"
 
 export default function WalletChatWidget(){
     const [isOpen, setIsOpen] = useState(false);
-    const url = "https://app.walletchat.fun/"//"app.walletchat.fun" //http://localhost:3000
+    const [numUnread, setNumUnread] = useState(0)
+    const url = process.env.REACT_APP_APP_URL || "http://localhost:3000"  //"https://app.walletchat.fun/"//"app.walletchat.fun" //http://localhost:3000
+    console.log(`url: ${url}`)
     const clickHandler = (e) =>{
         setIsOpen(!isOpen)
     }
+
+    // console.log("Getting msg_cnt")
+    // let cnt = localStorage.getItem("msg_cnt")
+    // console.log(`Expected 10, gotten ${cnt}`)
+    // cnt = getCookie("msg_cnt"); 
+    // console.log(`Expected 10, gotten ${cnt}`)
+    setInterval(()=>{
+        let cnt = getCookie("_wallet_chat_msg_cnt"); 
+        setNumUnread(cnt);
+    }, 3000);
     return (
         <div id={styles['wallet-chat-widget__container']}>
             {/* {isOpen && (
@@ -22,7 +35,7 @@ export default function WalletChatWidget(){
                     minWidth:isOpen?"":"0px"
                     // display: isOpen?"block":"none"
                 }} src={url}></iframe>
-            <ButtonOverlay isOpen={isOpen} clickHandler={clickHandler}/>
+            <ButtonOverlay notiVal={numUnread} showNoti={numUnread>0} isOpen={isOpen} clickHandler={clickHandler}/>
         </div>
     )
 }
