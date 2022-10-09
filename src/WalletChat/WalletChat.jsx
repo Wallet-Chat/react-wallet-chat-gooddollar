@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ButtonOverlay from "../ButtonOverlay/ButtonOverlay" 
 // import "./WalletChat.css"
 import styles from './WalletChat.module.css'
@@ -19,9 +19,18 @@ export default function WalletChatWidget(){
     // console.log(`Expected 10, gotten ${cnt}`)
     // cnt = getCookie("msg_cnt"); 
     // console.log(`Expected 10, gotten ${cnt}`)
+    useEffect(()=>{
+        window.addEventListener("message", (e) => {
+            var data = e.data;
+            console.log("RECEIVED message from CHILD TO PARENT");
+            console.log(data)
+            setNumUnread(data);
+          });
+    },[])
     setInterval(()=>{
         let cnt = getCookie("_wallet_chat_msg_cnt"); 
-        setNumUnread(cnt);
+        
+        // setNumUnread(cnt);
     }, 3000);
     return (
         <div id={styles['wallet-chat-widget__container']}>
