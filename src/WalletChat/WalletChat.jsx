@@ -8,7 +8,8 @@ import { getCookie } from "../utils"
 export default function WalletChatWidget(){
     const [isOpen, setIsOpen] = useState(false);
     const [numUnread, setNumUnread] = useState(0)
-    const url = process.env.REACT_APP_APP_URL || "http://localhost:3000"  //"https://app.walletchat.fun/"//"app.walletchat.fun" //http://localhost:3000
+    // const url = process.env.REACT_APP_APP_URL || "http://localhost:3000"  //"https://app.walletchat.fun/"//"app.walletchat.fun" //http://localhost:3000
+    const url = "http://192.168.50.30" || "http://localhost:3000"
     console.log(`url: ${url}`)
     const clickHandler = (e) =>{
         setIsOpen(!isOpen)
@@ -37,7 +38,7 @@ export default function WalletChatWidget(){
             {/* {isOpen && (
                 <iframe id="wallet-chat-widget" src={url}></iframe>
             )} */}
-            <iframe id={styles['wallet-chat-widget']} style={{
+            <iframe id='wallet-chat-widget' className={styles['wallet-chat-widget']} style={{
                     height:isOpen?"":"0px",
                     width:isOpen?"":"0px",
                     minHeight:isOpen?"":"0px",

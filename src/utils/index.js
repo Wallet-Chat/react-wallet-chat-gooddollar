@@ -1,6 +1,12 @@
 const getCookie = (cname) => {
     let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
+    let iframe = document.getElementById("wallet-chat-widget")
+    console.log(iframe)
+    console.log(iframe.contentDocument)
+    let cookies = iframe.contentDocument.cookie || document.cookie;
+    console.log(cookies)
+    console.log(document.cookie)
+    let decodedCookie = decodeURIComponent(cookies);  //#
     let ca = decodedCookie.split(';');
     for(let i = 0; i <ca.length; i++) {
       let c = ca[i];
