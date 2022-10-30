@@ -4,13 +4,16 @@ import ButtonOverlay from "../ButtonOverlay/ButtonOverlay";
 import styles from "./WalletChat.module.css";
 import { getCookie } from "../utils";
 
-export default function WalletChatWidget({chatAddr, isOpen, setIsOpen}) {
+export default function WalletChatWidget({chatAddr, setChatAddr, isOpen, setIsOpen}) {
   console.log(`isOpen2: ${isOpen}`)
   if(isOpen == undefined || setIsOpen == undefined){
     // const [isOpen, setIsOpen] = useState(isOpen2 != undefined? isOpen2:false);
     [isOpen, setIsOpen] = useState(false);
   }
   
+  if (chatAddr == undefined || setChatAddr == undefined){
+    [chatAddr, setChatAddr] = useState("");
+  }
   const [numUnread, setNumUnread] = useState(0);
   let url = process.env.REACT_APP_APP_URL || "https://v1.walletchat.fun"
   console.log(`url: ${url}`);
