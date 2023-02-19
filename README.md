@@ -7,8 +7,8 @@
 ## Install
 
 ```bash
-npm install --save react-wallet-chat
-yarn add react-wallet-chat
+npm install --save react-wallet-chat-gooddollar
+yarn add react-wallet-chat-gooddollar
 ```
 
 ## Usage
@@ -16,8 +16,8 @@ yarn add react-wallet-chat
 ```jsx
 import React, { Component } from 'react'
 
-import WalletChatWidget from 'react-wallet-chat'
-import 'react-wallet-chat/dist/index.css'
+import WalletChatWidget from 'react-wallet-chat-gooddollar'
+import 'react-wallet-chat-gooddollar/dist/index.css'
 
 class Example extends Component {
   render() {
